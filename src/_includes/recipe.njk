@@ -48,7 +48,17 @@
             <div class="instructions-panel">
                 <h2>Instructions</h2>
                 <div class="steps">
-                    {{ content | safe }}
+                    <ol class="instructions-list">
+                    {% for step in steps %}
+                        <li>
+                            <p>
+                            {% for token in step %}
+                                {{ token | safe }}
+                            {% endfor %}
+                            </p>
+                        </li>
+                    {% endfor %}
+                    </ol>
                 </div>
             </div>
         </div>
