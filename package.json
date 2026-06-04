@@ -1,0 +1,27 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yannicked/cookbook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Yannicked/cookbook/issues"
+  },
+  "homepage": "https://github.com/Yannicked/cookbook#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "eleventy-plugin-cooklang": "^0.0.5",
+    "markdown-it": "^14.1.1",
+    "markdown-it-cooklang": "^0.4.0"
+  }
+}

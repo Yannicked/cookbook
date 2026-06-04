@@ -1,0 +1,27 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fancy Cookbook</title>
+    <link rel="stylesheet" href="{{ '/style.css' | url }}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Fancy Cookbook</h1>
+
+        <ul class="recipe-list">
+        {% for item in collections.all %}
+            {% if item.url and item.url != "/" %}
+            <li class="recipe-card">
+                <a href="{{ item.url }}">{{ item.fileSlug | replace("-", " ") }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

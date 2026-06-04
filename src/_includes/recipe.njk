@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ '/style.css' | url }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ '/' | url }}" class="back-link">← Back to Cookbook</a>
+        <h1>{{ title }}</h1>
+
+        <div class="recipe-meta">
+            {% if recipeTags %}
+                <div class="tags">
+                    {% for tag in recipeTags %}
+                        <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="recipe-grid">
+            <div class="ingredients-panel">
+                <h2>Ingredients</h2>
+                <ul>
+                {% for item in ingredients %}
+                    <li>
+                        <span class="ingredient-name">{{ item.name }}</span>
+                        {% if item.quantity %}
+                            <span class="ingredient-quantity">{{ item.quantity }} {{ item.units }}</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+
+                {% if cookware.length > 0 %}
+                    <h2>Equipment</h2>
+                    <ul>
+                    {% for item in cookware %}
+                        <li>{{ item.name }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="instructions-panel">
+                <h2>Instructions</h2>
+                <div class="steps">
+                    <ol class="instructions-list">
+                    {% for step in steps %}
+                        <li>
+                            <p>
+                            {% for token in step %}
+                                {{ token | safe }}
+                            {% endfor %}
+                            </p>
+                        </li>
+                    {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
